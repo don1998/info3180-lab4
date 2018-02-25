@@ -1,13 +1,11 @@
 {% extends "base.html" %}
 {% block main %}
-    <div class="container">
+    <div>
     <div><h2>List of Files</h2></div>
     {% for f in lst %}
-        <!--{% if f.lower().split('.')[-1] == 'png'%}-->
-        <div class="grid"> <img src="{{url_for('static', filename ='uploads/'+ f ) }}"></img></div>
-            <!--{% else %}
-                <li> {{ f }} </li>
-        {% endif %}-->
+        <div class="grid"> 
+        <img src="{{url_for('static', filename ='uploads/'+ f ) }}"></img>
+        </div>
     {% endfor %}
     </div>
 {% endblock %}

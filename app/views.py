@@ -11,9 +11,22 @@ from werkzeug.utils import secure_filename
 from forms import UploadForms
 
 
+
+def get_uploaded_images():
+    lst=[]
+    rootdir = os.getcwd()
+    for subdir, dirs, files in os.walk(rootdir + '/app/static/uploads'):
+        for file in files:
+                lst.append(file)
+        return lst
 ###
 # Routing for your application.
 ###
+
+@app.route('/files')
+def files():
+    lst=get_uploaded_images()
+    return render_template('files.html',lst=lst)
 
 @app.route('/')
 def home():
